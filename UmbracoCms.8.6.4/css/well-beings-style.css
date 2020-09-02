@@ -1,0 +1,33 @@
+
+        .well-beings-header {
+            font-size: 70px;
+        }
+        
+        .well-beings-text {
+            font-family: 'Open Sans', sans-serif !important;
+            color: #FFFFFF;
+        }
+        
+        .pull-right {
+            margin-left: auto;
+            margin-right: 10px;
+            padding-right: 10px;
+            float: right;
+        }
+        
+        .well-being-nav-bar {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 5px 10px;
+            flex-basis: auto;
+            flex-grow: 1;
+            min-height: 58px;
+        }
+        
+        .well-beings-color {
+            background-color: #0A215A;
+            color: #FFFFFF;
+        }

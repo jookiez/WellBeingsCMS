@@ -1,0 +1,15 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Home>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "master.cshtml";
+    var backgroundImage = Model.HeroBackgroundImage != null ? Model.HeroBackgroundImage.Url : String.Empty;
+}
+<section class="section section--full-height background-image-full overlay overlay--dark section--thick-border"
+         style="background-image: url('@backgroundImage')">
+    <div class="well-beings-header">
+        <h1 class="well-beings-text">@Model.HeroHeader</h1>
+    </div>
+    <div class="description-image">
+        <img src="@Model.HomeDescription.Url">
+    </div>
+</section>

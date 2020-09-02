@@ -1,0 +1,50 @@
+﻿@inherits UmbracoViewPage<Retailer>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "master.cshtml";
+    
+    var coordinates = Model.MapLocation.ToString().Split(',');
+
+    var latitude = coordinates[0];
+    var longitude = coordinates[1];
+    var zoomLevel = coordinates[2];
+
+    // Build the coordinates string
+    var coordinatesString = longitude + "," + latitude + "," + longitude + "," + latitude;
+}
+<!-- for the section we want to show the shop header -->
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml", Model.Parent)
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="product-image-container">
+                    <img class="product-image" src="@Model.RetailImage.Url" alt="@Model.RetailerName image" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h1>@Model.RetailerName</h1>
+                <div class="product-teaser">@Model.RetailerAddress</div>
+                <div class="product-button">
+                    <!-- google maps -->
+                </div>
+                <iframe width="450"
+                        height="250"
+                        frameborder="0"
+                        scrolling="no"
+                        marginheight="0"
+                        marginwidth="0"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=@coordinatesString&amp;layer=mapnik&amp;marker=@Model.MapLocation"
+                        style="border: 1px solid black">
+                </iframe>
+
+                <br />
+
+                <small>
+                    <a href="https://www.openstreetmap.org/?mlat=@latitude&amp;mlon=@longitude#map=@zoomLevel/@latitude/@longitude&amp;layers=N">View Larger Map</a>
+                </small>
+            </div>
+        </div>
+    </div>
+</section>
